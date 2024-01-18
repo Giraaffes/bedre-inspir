@@ -1,0 +1,45 @@
+{
+	"manifest_version": 3,
+	"name": "Bedre Inspir",
+	"description": "Forbedrer den generelle brugeroplevelse som redaktør på Inspir's hjemmeside til skoleblad.",
+	"version": "1.0",
+	"icons": {
+		"16": "images/icon-16.png",
+		"32": "images/icon-32.png",
+		"48": "images/icon-48.png",
+		"128": "images/icon-128.png"
+	},
+	"content_scripts": [
+		{
+			"js": ["scripts/jquery-3.6.0.min.js", "scripts/notify.min.js", "scripts/datatables.min.js", "scripts/overview.js"],
+			"matches": [
+				"https://*.inspir.dk/admin/articles/overview/*"
+			],
+			"run_at": "document_start"
+		},
+		{
+			"js": ["scripts/jquery-3.6.0.min.js", "scripts/notify.min.js", "scripts/edit_article.js"],
+			"matches": [
+				"https://*.inspir.dk/admin/articles/edit/*"
+			]
+		},
+		{
+			"js": ["scripts/jquery-3.6.0.min.js", "scripts/preview.js"],
+			"matches": [
+				"https://*.inspir.dk/admin/articles/preview-article/*"
+			]
+		},
+		{
+			"js": ["scripts/jquery-3.6.0.min.js", "scripts/homepage.js"],
+			"matches": [
+				"https://*.inspir.dk/"
+			]
+		},
+		{
+			"js": ["scripts/jquery-3.6.0.min.js", "scripts/login.js"],
+			"matches": [
+				"https://*.inspir.dk/user/login*"
+			]
+		}
+	]
+}
